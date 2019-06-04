@@ -1,6 +1,6 @@
 <template>
   <div id="itany">
-    <canvas id="c" width="1920" height="382"></canvas>
+    <canvas id="c" :style="{height: screenHeight+'px',width:screenWidth+'px'}"></canvas>
     <el-row class="index-search">
       <el-col :span="5"></el-col>
       <el-col :span="14" style="position:relative;"><input type="text" class="search" v-model="keyword" @keyup="getData"><img src="../assets/icon-search.png" ></el-col>
@@ -37,6 +37,8 @@ export default {
   name: 'List',
   data () {
     return {
+      screenHeight: window.innerHeight,
+      screenWidth: window.innerWidth,
       msg: '',
       keyword: '',
       myData: [],

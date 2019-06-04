@@ -1,6 +1,6 @@
 <template>
   <div class="hengtai">
-    <canvas id="c" width="1920" height="381"></canvas>
+    <canvas id="c" :style="{height: screenHeight+'px',width:screenWidth+'px'}"></canvas>
     <router-link to='/List'>
       <el-row class="index-search">
         <el-col :span="5"></el-col>
@@ -30,7 +30,9 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       url: '',
-      ok: false
+      ok: false,
+      screenHeight: window.innerHeight,
+      screenWidth: window.innerWidth,
     }
   },
   methods: {
