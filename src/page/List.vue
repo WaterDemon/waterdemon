@@ -1,5 +1,6 @@
 <template>
   <div id="itany">
+    <canvas id="c" width="1920" height="382"></canvas>
     <el-row class="index-search">
       <el-col :span="5"></el-col>
       <el-col :span="14" style="position:relative;"><input type="text" class="search" v-model="keyword" @keyup="getData"><img src="../assets/icon-search.png" ></el-col>
@@ -18,7 +19,7 @@
     </el-row>
     <div class="leftList">
       <el-row>
-        <el-col :span="24" v-for="(values,index) in musicId" :class="{current:index==now}" :key="values.id">
+        <el-col :span="24" v-for="(values,index) in musicId" v-if="index < 15" :class="{current:index==now}" :key="values.id">
           <span>{{index+1}}.{{values.name}}</span>
           <span>{{values.ar[0].name}}</span>
           <button class="el-button el-button--primary" :data-id="values.id" @click="orr(values.id)">播放</button>
@@ -29,7 +30,7 @@
     <!--<p v-show="myData.length==0">暂无数据....</p>-->
   </div>
 </template>
-
+<script src="../static/index.js"></script> 
 <script>
 import axios from 'axios'
 export default {
@@ -83,11 +84,6 @@ export default {
       }).then((result) => {
         var musicId = result.data.result.songs
         this.musicId = musicId
-        let list = []
-        for (var i = 0; i < musicId.length; i++) {
-          list.push(musicId[i].id)
-        }
-        this.listId = list
         this.ok = false
       })
     },
@@ -107,6 +103,14 @@ export default {
 }
 </script>
 <style>
+canvas {
+  display: block;
+  background:radial-gradient(ellipse at top, #112 18%, #000 150%);
+  z-index: -1;
+  position : absolute;
+  margin: 0 auto;
+}
+
 .current{
       background-color:#ccc;
     }
@@ -117,6 +121,8 @@ export default {
 .SearchList,.SearchList li{list-style: none;}
 .SearchList li{text-align: left;line-height: 30px;}
 ul{list-style: none}
+span{color:#fff;}
+li{color:#fff;}
 ul,li{list-style:none;}
 .leftList button{float:right;margin-right:30%;line-height:40px;width:80px;}
 .leftList div{line-height:40px;border-bottom:1px solid #ddd;}

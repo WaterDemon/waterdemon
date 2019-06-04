@@ -1,5 +1,6 @@
 <template>
   <div class="hengtai">
+    <canvas id="c" width="1920" height="381"></canvas>
     <router-link to='/List'>
       <el-row class="index-search">
         <el-col :span="5"></el-col>
@@ -10,7 +11,7 @@
     <!-- <div @click="get"  class="geci">axios获取数据1<p>{{url}}</p></div> -->
     <Head/>
     <img class="logo" src="../assets/gagaga.png">
-    <div v-show="ok">好想摘掉面具，伪装了太久了只有附近无人的时候才会看下自己的伤疤</div>
+    <div v-show="ok"></div>
   </div>
 </template>
 
@@ -48,8 +49,6 @@ export default {
     }
   }
 }
-console.log('好想摘掉面具')
-console.log('本网站是调取的一些开放性的接口，纯粹是站主学习各种技术测试用')
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -74,6 +73,10 @@ li {
 a {
   color: #42b983;
 }
+.hengtai{
+  width:100%;
+  height:100%;
+}
 .el-carousel__item h3 {
     color: #475669;
     font-size: 14px;
@@ -81,7 +84,13 @@ a {
     line-height: 150px;
     margin: 0;
   }
-
+canvas {
+  display: block;
+  background:radial-gradient(ellipse at top, #112 18%, #000 150%);
+  z-index: -1;
+  position : absolute;
+  margin: 0 auto;
+}
   .el-carousel__item:nth-child(2n) {
      background-color: #99a9bf;
   }
