@@ -102,14 +102,6 @@ export default {
 }
 </script>
 <style>
-canvas {
-  display: block;
-  background:radial-gradient(ellipse at top, #112 18%, #000 150%);
-  z-index: -1;
-  position : absolute;
-  margin: 0 auto;
-}
-
 .current{
       background-color:#ccc;
     }
@@ -124,5 +116,5 @@ span{color:#fff;}
 li{color:#fff;}
 ul,li{list-style:none;}
 .leftList button{float:right;margin-right:30%;line-height:40px;width:80px;}
-.leftList div{line-height:40px;border-bottom:1px solid #ddd;}
+.leftList>div>div{line-height:40px;border-bottom:1px solid #ddd;}
 </style>

@@ -26,7 +26,6 @@ export default {
 }
 </script>
 <style>
-body{background:#fff;padding:10px;margin:0;}
 .current{
       background-color:#ccc;
     }

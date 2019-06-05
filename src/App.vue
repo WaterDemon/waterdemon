@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <canvas id="c" :style="{height: screenHeight+'px',width:screenWidth+'px'}"></canvas>
+    <img class="logo" src="./assets/hahaha.gif">
     <router-view/>
   </div>
 </template>
@@ -23,7 +24,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-canvas {
+#c {
   display: block;
   background:radial-gradient(ellipse at top, #112 18%, #000 150%);
   z-index: -1;
@@ -33,4 +34,5 @@ canvas {
 html{
   background:#EEEEEE;
 }
+.logo{display:block;width: 180px;height: 180px;position: absolute;top:10px;right:10px;}
 </style>
